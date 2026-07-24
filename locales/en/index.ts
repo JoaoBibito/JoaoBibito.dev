@@ -1,7 +1,9 @@
 // import { common } from './common';
-// import { pages } from './pages';
+import { pages } from './pages';
 
-export const translation = {
+export const  translation = {
 //   common,
-//   pages
+   pages
 };
+
+export default translation;

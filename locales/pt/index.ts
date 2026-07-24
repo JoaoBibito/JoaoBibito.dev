@@ -2,6 +2,7 @@
 import { pages } from './pages';
 
 export const translation = {
-//   common,
+  //   common,
   pages
 };
+export default translation;
