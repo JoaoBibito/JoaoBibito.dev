@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cn } from '@/lib/cn';
 import { Fira_Code } from 'next/font/google';
 import localFont from 'next/font/local';
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 
 
@@ -72,7 +73,8 @@ export default function RootLayout({
           fontMono.variable,
           fontHeading.variable
         )}>
-        {children}
+             <TooltipProvider delayDuration={150}>     {children}</TooltipProvider>
+   
       </body>
     </html>
   );
