@@ -9,6 +9,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { messages } from '@/i18n/messages';
 import { TooltipProvider } from '@/components/tooltip';
+import {Particles} from '@/components/particles';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -99,7 +100,6 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({ children, params }: LayoutProps) {
   const { locale } = await params;
-
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -122,6 +122,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           messages={messages[locale] as unknown as Record<string, unknown>}
         > 
         <TooltipProvider delayDuration={150}>
+          <Particles/>
           {children}
         </TooltipProvider>
         </NextIntlClientProvider>
