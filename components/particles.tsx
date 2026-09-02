@@ -56,7 +56,7 @@ export function Particles() {
               value: 180,
             },
             opacity: {
-              value: 0.3,
+              value: 0.4,
             },
             shape: {
               type: "circle",

@@ -8,7 +8,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const locale = hasLocale(routing.locales, requested)
     ? requested
     : routing.defaultLocale;
-
   return {
     locale,
     // We expose our typed bundle as next-intl messages so useTranslations

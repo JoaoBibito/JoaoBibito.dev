@@ -73,8 +73,10 @@ export default function RootLayout({
           fontMono.variable,
           fontHeading.variable
         )}>
-             <TooltipProvider delayDuration={150}>     {children}</TooltipProvider>
-   
+        <TooltipProvider delayDuration={150}>
+          {children}
+        </TooltipProvider>
+
       </body>
     </html>
   );

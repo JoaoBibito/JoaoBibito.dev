@@ -1,6 +1,6 @@
 
 import type { Metadata, Viewport } from 'next';
-import {hasLocale, NextIntlClientProvider } from 'next-intl';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { cn } from '@/lib/cn';
 import { Fira_Code } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -9,13 +9,14 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { messages } from '@/i18n/messages';
 import { TooltipProvider } from '@/components/tooltip';
-import {Particles} from '@/components/particles';
+import { Particles } from '@/components/particles';
+import {Navbar} from '@/components/navbar';
 
 type LayoutProps = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
- 
+
 const fontSans = localFont({
   src: [
     {
@@ -80,14 +81,14 @@ export const metadata = {
       url: 'https://joaobibito.dev'
     }
   ],
-  keywords: ['João', 'Vitor','JoaoBibito', 'JoãoBibito', 'joaobibito.dev', 'Bibito', 'João Vitor Bibito', 'João Vitor', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito'],
+  keywords: ['João', 'Vitor', 'JoaoBibito', 'JoãoBibito', 'joaobibito.dev', 'Bibito', 'João Vitor Bibito', 'João Vitor', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito', 'João Vitor Bibito'],
   openGraph: {
     type: 'website',
     title: 'João Vitor',
     url: 'https://joaobibito.dev'
   }
 } satisfies Metadata;
-      
+
 
 export const viewport = {
   themeColor: '#08070b',
@@ -120,13 +121,16 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         <NextIntlClientProvider
           locale={locale}
           messages={messages[locale] as unknown as Record<string, unknown>}
-        > 
-        <TooltipProvider delayDuration={150}>
-          <Particles/>
-          {children}
-        </TooltipProvider>
+        >
+          <TooltipProvider delayDuration={150}>
+            <div className="relative z-0 flex min-h-screen flex-col">
+              <Particles/>
+              <Navbar />
+              {children}
+            </div>
+          </TooltipProvider>
         </NextIntlClientProvider>
-        </body>
-       </html>
+      </body>
+    </html>
   );
 }
