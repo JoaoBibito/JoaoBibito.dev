@@ -13,7 +13,7 @@ export function Particles() {
         id: "tsparticles", // HTML container ID
         options: {
           background: {
-            color: "#000000",
+            color: "#transparent",
           },
           fpsLimit: 120,
           interactivity: {
@@ -72,5 +72,5 @@ export function Particles() {
     init();
   }, []);
 
-  return <div id="tsparticles" style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }} />;
+  return <div id="tsparticles" style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }} />;
 }

@@ -3,6 +3,7 @@ import { cn } from '@/lib/cn';
 import { Fira_Code } from 'next/font/google';
 import localFont from 'next/font/local';
 import { TooltipProvider } from "@radix-ui/react-tooltip";
+import '../styles/globals.css';
 
 
 

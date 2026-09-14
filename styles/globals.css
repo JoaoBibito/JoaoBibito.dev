@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #f2f2f2;
+    --color-secondary: #8f9ba8;
+    --color-background: #08070b;
+    --color-hover: #212024;
+
+}
+
+@layer base {
+    * {
+        @apply font-sans;
+    }
+
+    html,
+    body {
+        @apply bg-background antialiased;
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-1.5;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-[#151417];
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-lg border-8 border-solid border-primary bg-primary;
+    }
+}
