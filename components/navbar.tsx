@@ -1,9 +1,14 @@
 'use client'
-import { Menu } from "lucide-react";
+import { Menu, Bolt } from "lucide-react";
+import Link from "next/link";
 
 export const Navbar = () => {
     return (
-        <header className="absolute top-0 z-30 mt-3 flex min-h-15 w-full flex-wrap items-center text-xs text-white md:mt-0">
+        <header className="absolute top-0 z-30 mt-3 flex min-h-15 w-full flex-wrap items-center justify-center text-xs text-white md:mt-0">
+            <Link href="/" >
+            
+            <Bolt className="h-6 w-6" />
+            </Link>
             <button
                 type="button"
                 aria-label="Open Command Palette"
