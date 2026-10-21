@@ -123,20 +123,10 @@ export default function proxy(request: NextRequest) {
         ? `# 404 — Página não encontrada
 
 O caminho solicitado não existe ou foi movido.
-
-- [Página inicial](https://snowye.dev${prefix})
-- [Mapa do site](https://snowye.dev/sitemap.xml)
-- [Instruções para agentes](https://snowye.dev/llms.txt)
-- [Currículo em Markdown](https://snowye.dev${prefix}/cv.md)
 `
         : `# 404 — Page not found
 
 The requested path does not exist or may have moved.
-
-- [Homepage](https://snowye.dev/)
-- [Sitemap](https://snowye.dev/sitemap.xml)
-- [Agent instructions](https://snowye.dev/llms.txt)
-- [CV in Markdown](https://snowye.dev/cv.md)
 `;
 
     return new NextResponse(body, {
