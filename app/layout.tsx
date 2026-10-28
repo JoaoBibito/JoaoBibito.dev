@@ -1,3 +1,4 @@
+import { headers } from 'next/headers';
 import type { Metadata } from "next";
 import { cn } from '@/lib/cn';
 import { Fira_Code } from 'next/font/google';
@@ -59,14 +60,16 @@ const fontHeading = localFont({
   variable: '--font-heading'
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+  const locale = (await headers()).get('x-site-locale') === 'pt' ? 'pt' : 'en';
   return (
     <html
-      lang="pt">
+      lang={locale}>
       <body
         suppressHydrationWarning
         className={cn(

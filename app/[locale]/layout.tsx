@@ -109,15 +109,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
-      <body
-        suppressHydrationWarning
-        className={cn(
-          fontSans.variable,
-          fontMono.variable,
-          fontHeading.variable
-        )}
-      >
+    <>
         <NextIntlClientProvider
           locale={locale}
           messages={messages[locale] as unknown as Record<string, unknown>}
@@ -130,7 +122,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
             </div>
           </TooltipProvider>
         </NextIntlClientProvider>
-      </body>
-    </html>
+        </>
   );
 }

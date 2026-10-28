@@ -1,5 +1,5 @@
 export const navbar ={
 about: 'Sobre',
-projects:'Projects',
-contact:'Contact' 
+projects:'Projetos',
+contact:'Contato' 
 }

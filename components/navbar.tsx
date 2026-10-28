@@ -4,6 +4,7 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { useT } from "@/i18n/use-t";
+import { LocaleSwitcher } from "./locale-switcher";
 import { motion } from 'framer-motion'
 
 export const pages = ['about', 'projects', 'contact'] as const;
@@ -30,7 +31,7 @@ export function Navbar() {
                 <ul className="relative top-[5px] inline-flex list-none justify-around">
                     {pages.map((page) => {
                         const path = `/${page.toLocaleLowerCase()}`
-                        const ishovered = hovered === page;
+                        const isHovered = hovered === page;
                         const label = t.common.navbar[page]
                         return (
                             <li
@@ -49,7 +50,14 @@ export function Navbar() {
                                         )}
                                         onHoverStart={() => setHovered(page)}
                                         onHoverEnd={() => setHovered('')}
-                                    >   {label}
+                                    >
+                                        {isHovered && (
+                                            <motion.span
+                                                layoutId="nav"
+                                                transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
+                                                className="absolute left-0 right-0 top-[7px] -z-10 rounded-lg bg-hover p-5"
+                                            />
+                                        )}{label}
                                     </motion.span>
                                 </Link>
                             </li>
@@ -58,12 +66,13 @@ export function Navbar() {
                 </ul>
             </nav>
             <aside className="order-2 ml-auto mr-3 flex items-centergap-1">
-            <button
-                type="button"
-                aria-label="Open Command Palette"
-                className="flex cursor-pointer z-10 items-center justify-center bg-transparent p-2 transition-colors duration-200 ease-in-out hover:bg-hover">
-                <Menu className="h-6 w-6" />
-            </button>
+                <LocaleSwitcher />
+                <button
+                    type="button"
+                    aria-label="Open Command Palette"
+                    className="flex cursor-pointer z-10 items-center justify-center bg-transparent p-2 transition-colors duration-200 ease-in-out hover:bg-hover">
+                    <Menu className="h-6 w-6" />
+                </button>
             </aside>
         </header>
     )

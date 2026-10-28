@@ -1,2 +1,6 @@
 import { navbar } from './navbar';
-export const common ={ navbar }
+import { localeSwitcher } from './locale-switcher';
+export const common = { 
+    navbar, 
+    localeSwitcher 
+}
