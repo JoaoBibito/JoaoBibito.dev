@@ -5,6 +5,7 @@ import { Fira_Code } from 'next/font/google';
 import localFont from 'next/font/local';
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import '../styles/globals.css';
+import { Particles } from '@/components/particles';
 
 
 
@@ -78,6 +79,7 @@ export default async function RootLayout({
           fontHeading.variable
         )}>
         <TooltipProvider delayDuration={150}>
+          <Particles/>
           {children}
         </TooltipProvider>
 

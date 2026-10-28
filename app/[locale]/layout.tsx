@@ -116,7 +116,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
         >
           <TooltipProvider delayDuration={150}>
             <div className="relative z-0 flex min-h-screen flex-col">
-              <Particles/>
+           
               <Navbar />
               {children}
             </div>
